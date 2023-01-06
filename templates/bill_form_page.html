@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/main.css">
+</head>
+
+<body>
+    <h2>The Bill Form</h2>
+    <p>Fill in the form and click the button to get the results</p>
+    <form action="/bill_form_page" method="post">
+        {{ bill_form.amount.label }} {{ bill_form.amount }}
+        <br>
+        {{ bill_form.period.label }} {{ bill_form.period }}
+        <hr>
+        <p>First Flatmate</p>
+        {{ bill_form.name1.label }} {{ bill_form.name1 }}
+        <br>
+        {{ bill_form.days_in_house1.label }} {{ bill_form.days_in_house1 }}
+        <hr>
+        <p>Second Flatmate</p>
+        {{ bill_form.name2.label }} {{ bill_form.name2 }}
+        <br>
+        {{ bill_form.days_in_house2.label }} {{ bill_form.days_in_house2 }}
+        <hr>
+        {{ bill_form.btn_submit }}
+        <hr>
+        {% if result %}
+        {{ name1 }} pays {{ amount1 }} EUR <br>
+        {{ name2 }} pays {{ amount2 }} EUR
+        {% endif %}
+    </form>
+</body>
+
+</html>
